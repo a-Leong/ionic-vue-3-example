@@ -46,6 +46,23 @@
         <IonSelectOption value="female">Female</IonSelectOption>
         <IonSelectOption value="male">Male</IonSelectOption>
       </IonSelect>
+
+      <p>IonRadioGroup value = {{ foo }}</p>
+      <IonRadioGroup :value="foo" @ionChange="foo = $event.target.value">
+        <IonItem>
+          <IonLabel>1</IonLabel>
+          <IonRadio value="1" />
+        </IonItem>
+        <IonItem>
+          <IonLabel>2</IonLabel>
+          <IonRadio value="2" />
+        </IonItem>
+        <IonItem>
+          <IonLabel>3</IonLabel>
+          <IonRadio value="3" />
+        </IonItem>
+      </IonRadioGroup>
+
       <IonButton :href="{ path: '/' }" @click="asd">foo bar</IonButton>
       <IonButton @click="openModalComponent">Open modal component</IonButton>
       <IonButton @click="isOpenAS = true" v-model:disabled="isOpen"
@@ -77,7 +94,11 @@ import {
   IonSelect,
   IonSelectOption,
   IonMenu,
-  IonMenuButton
+  IonMenuButton,
+  IonRadioGroup,
+  IonItem,
+  IonRadio,
+  IonLabel,
 } from "@modus/ionic-vue";
 import HelloWorld from "./HelloWorld.vue";
 import { ref } from "vue";
@@ -99,7 +120,11 @@ export default {
     IonSelect,
     IonSelectOption,
     IonMenuButton,
-    IonMenu
+    IonMenu,
+    IonRadioGroup,
+    IonItem,
+    IonRadio,
+    IonLabel,
   },
   data() {
     return {
@@ -107,6 +132,7 @@ export default {
       isOpenAS: false,
       value: ref("female"),
       msg: "asd",
+      foo: "1",
       buttons: [
         {
           text: "Delete",
